@@ -90,7 +90,7 @@ SET ProperySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress
 
 
 SELECT *
-From [NashvilleHousing]
+from [NashvilleHousing]
 
 
 
@@ -103,7 +103,7 @@ from NashvilleHousing
 Select PARSENAME(REPLACE(OwnerAddress,',','.'),3) as Address,
 PARSENAME(REPLACE(OwnerAddress,',','.'),2) as City,
 PARSENAME(REPLACE(OwnerAddress,',','.'),1) as State
-FROM NashvilleHousing
+from NashvilleHousing
 
 
 -- Inserting into the database 
@@ -143,7 +143,7 @@ SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress,',','.'),1)
 -- Change 0 and 1 to Yes and No in "Sold as Vacant" field
 
 Select DISTINCT(SoldAsVacant), COUNT(SoldasVacant)
-From NashvilleHousing
+from NashvilleHousing
 Group by SoldAsVacant
 Order by 2
 
@@ -154,7 +154,7 @@ Select SoldAsVacant
 		When CAST(SoldAsVacant as VARCHAR) = '0' THEN 'No'
 		Else CAST(SoldAsVacant as VARCHAR)
 		END
-From NashvilleHousing
+from NashvilleHousing
 
 
 -- Adding new Column and Updating 
@@ -201,7 +201,7 @@ Select *,
 					UniqueID
 					) as row_num
 
-From NashvilleHousing
+from NashvilleHousing
 --order by ParcelID
 )
 Select *
